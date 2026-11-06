@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#00e676">
+
+<title>GEN-Z</title>
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+    <h1>GEN-<span>Z</span></h1>
+    <p>Connect. Share. Discover.</p>
+</header>
+
+<main>
+
+    <section class="welcome">
+        <h2>Welcome to GEN-Z</h2>
+        <p>One world. Unlimited connections.</p>
+
+        <button onclick="showRegister()">Create Account</button>
+
+        <button class="login" onclick="showLogin()">Login</button>
+    </section>
+
+    <section class="features">
+        <div>💬 Chats</div>
+        <div>📞 Calls</div>
+        <div>🎬 Videos</div>
+        <div>🔍 Search</div>
+        <div>💰 Wallet</div>
+    </section>
+
+</main>
+
+<script src="script.js"></script>
+
+</body>
+</html>
