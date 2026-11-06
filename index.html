@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sw">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#00e676">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#00e676">
 
-<title>GEN-Z</title>
-
-<link rel="stylesheet" href="style.css">
+    <title>GEN-Z</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -19,13 +18,78 @@
 
 <main>
 
-    <section class="welcome">
+    <section class="welcome" id="welcome">
         <h2>Welcome to GEN-Z</h2>
         <p>One world. Unlimited connections.</p>
 
-        <button onclick="showRegister()">Create Account</button>
+        <button id="showRegister">Create Account</button>
+        <button class="secondary" id="showLogin">Login</button>
 
-        <button class="login" onclick="showLogin()">Login</button>
+        <button class="google" id="googleLogin">
+            Continue with Google
+        </button>
+    </section>
+
+    <section class="form-box hidden" id="registerBox">
+        <h2>Create Account</h2>
+
+        <form id="registerForm">
+            <input id="fullName" type="text"
+                   placeholder="Full Name" required>
+
+            <input id="username" type="text"
+                   placeholder="Username" required>
+
+            <input id="registerEmail" type="email"
+                   placeholder="Email Address" required>
+
+            <input id="registerPassword" type="password"
+                   placeholder="Password (at least 6 characters)" required>
+
+            <button type="submit">Register</button>
+        </form>
+
+        <button class="secondary" id="backRegister">Back</button>
+    </section>
+
+    <section class="form-box hidden" id="loginBox">
+        <h2>Login</h2>
+
+        <form id="loginForm">
+            <input id="loginEmail" type="email"
+                   placeholder="Email Address" required>
+
+            <input id="loginPassword" type="password"
+                   placeholder="Password" required>
+
+            <button type="submit">Login</button>
+        </form>
+
+        <button class="secondary" id="backLogin">Back</button>
+    </section>
+
+    <section class="form-box hidden" id="phoneBox">
+        <h2>Login with Phone</h2>
+
+        <input id="phoneNumber" type="tel"
+               placeholder="+2557XXXXXXXX">
+
+        <div id="recaptcha-container"></div>
+
+        <button id="sendOTP">Send OTP</button>
+
+        <input id="otpCode" type="text"
+               placeholder="Enter OTP code">
+
+        <button id="verifyOTP">Verify OTP</button>
+
+        <button class="secondary" id="backPhone">Back</button>
+    </section>
+
+    <section class="form-box hidden" id="accountBox">
+        <h2>Welcome to GEN-Z!</h2>
+        <p id="userDetails"></p>
+        <button id="logoutButton">Logout</button>
     </section>
 
     <section class="features">
@@ -36,9 +100,11 @@
         <div>💰 Wallet</div>
     </section>
 
+    <p id="message"></p>
+
 </main>
 
-<script src="script.js"></script>
+<script type="module" src="script.js"></script>
 
 </body>
 </html>
