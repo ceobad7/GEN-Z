@@ -29,7 +29,13 @@ import {
     where
 } from
 "https://www.gstatic.com/firebasejs/11.6.0/firebase-firestore.js";
-
+// FIREBASE STORAGE
+import {
+    getStorage,
+    ref,
+    uploadBytes,
+    getDownloadURL
+} from "https://www.gstatic.com/firebasejs/11.6.0/firebase-storage.js";
 
 // FIREBASE CONFIG
 const firebaseConfig = {
@@ -47,7 +53,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
-
+const storage = getStorage(app);
 const googleProvider = new GoogleAuthProvider();
 
 const $ = id => document.getElementById(id);
