@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#00e676">
-
     <title>GEN-Z</title>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -88,8 +87,56 @@
 
     <section class="form-box hidden" id="accountBox">
         <h2>Welcome to GEN-Z!</h2>
+
         <p id="userDetails"></p>
+
+        <div id="adminPanel" class="hidden">
+            <h2>ADMIN DASHBOARD 🔐</h2>
+            <p>Manage GEN-Z Advertisements</p>
+
+            <form id="adForm">
+
+                <input id="adTitle" type="text"
+                       placeholder="Advertisement Title" required>
+
+                <textarea id="adDescription"
+                          placeholder="Advertisement Description"
+                          required></textarea>
+
+                <input id="adImageUrl" type="url"
+                       placeholder="Image URL">
+
+                <input id="adLink" type="url"
+                       placeholder="Business Link">
+
+                <label>
+                    <input id="adActive" type="checkbox" checked>
+                    Publish Advertisement
+                </label>
+
+                <button type="submit" id="saveAdButton">
+                    Save Advertisement
+                </button>
+
+                <button type="button" class="secondary hidden"
+                        id="cancelEdit">
+                    Cancel Edit
+                </button>
+
+            </form>
+
+            <h3>Manage Advertisements</h3>
+            <div id="adminAdsList"></div>
+        </div>
+
         <button id="logoutButton">Logout</button>
+    </section>
+
+    <section id="adsSection">
+        <h2>🔥 Advertisements</h2>
+        <div id="adsList">
+            Loading advertisements...
+        </div>
     </section>
 
     <section class="features">
