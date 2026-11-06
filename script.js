@@ -354,8 +354,6 @@ async function loadAdminAds() {
         console.error(error);
     }
 }
-
-
 // SAVE ADVERTISEMENT
 $("adForm").addEventListener("submit", async event => {
     event.preventDefault();
@@ -366,10 +364,42 @@ $("adForm").addEventListener("submit", async event => {
     }
 
     try {
+        message("Saving advertisement...");
+
+        const file = $("adImageFile").files[0];
+
+        let imageUrl = $("adImageUrl").value.trim();
+
+        // CHECK IMAGE
+        if (file) {
+            if (!file.type.startsWith("image/")) {
+                message("Please select an image.");
+                return;
+            }
+
+            if (file.size > 5 * 1024 * 1024) {
+                message("Image must not exceed 5MB.");
+                return;
+            }
+
+            const safeName = file.name.replace(/[^a-zA-Z0-9._-]/g, "_");
+
+            const imageRef = ref(
+                storage,
+                "advertisements/" +
+                auth.currentUser.uid + "/" +
+                Date.now() + "_" + safeName
+            );
+
+            await uploadBytes(imageRef, file);
+
+            imageUrl = await getDownloadURL(imageRef);
+        }
+
         const ad = {
             title: $("adTitle").value.trim(),
             description: $("adDescription").value.trim(),
-            imageUrl: $("adImageUrl").value.trim(),
+            imageUrl: imageUrl,
             link: $("adLink").value.trim(),
             active: $("adActive").checked
         };
@@ -395,15 +425,15 @@ $("adForm").addEventListener("submit", async event => {
         }
 
         resetAdForm();
+
         await loadAdvertisements();
         await loadAdminAds();
 
     } catch (error) {
-        message(error.message);
         console.error(error);
+        message("Error: " + error.message);
     }
 });
-
 
 // EDIT ADVERTISEMENT
 function editAd(id, ad) {
