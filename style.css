@@ -1,0 +1,84 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #050b08;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    text-align: center;
+    padding: 35px 15px;
+    background: #091810;
+    border-bottom: 1px solid #00e676;
+}
+
+header h1 {
+    font-size: 45px;
+    color: #00e676;
+    letter-spacing: 3px;
+}
+
+header h1 span {
+    color: white;
+}
+
+header p {
+    color: #a9b7ae;
+    margin-top: 8px;
+}
+
+.welcome {
+    text-align: center;
+    padding: 80px 20px;
+}
+
+.welcome h2 {
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+.welcome p {
+    color: #a9b7ae;
+    margin-bottom: 30px;
+}
+
+button {
+    display: block;
+    width: 100%;
+    max-width: 300px;
+    margin: 12px auto;
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    background: #00e676;
+    color: black;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+button.login {
+    background: transparent;
+    color: #00e676;
+    border: 1px solid #00e676;
+}
+
+.features {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    padding: 20px;
+}
+
+.features div {
+    background: #102319;
+    padding: 25px 10px;
+    text-align: center;
+    border-radius: 12px;
+    border: 1px solid #164b2e;
+    font-size: 17px;
+  }
