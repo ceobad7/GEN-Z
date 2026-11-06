@@ -1,41 +1,102 @@
-function showRegister() {
-    document.body.innerHTML = `
-        <div class="welcome">
-            <h1>GEN-Z</h1>
-            <h2>Create Account</h2>
-
-            <input type="text" placeholder="Full Name">
-            <input type="text" placeholder="Username">
-            <input type="email" placeholder="Email">
-            <input type="password" placeholder="Password">
-
-            <button onclick="alert('Registration system coming soon!')">
-                Register
-            </button>
-
-            <button class="login" onclick="location.reload()">
-                Back
-            </button>
-        </div>
-    `;
+* {
+    box-sizing: border-box;
 }
 
-function showLogin() {
-    document.body.innerHTML = `
-        <div class="welcome">
-            <h1>GEN-Z</h1>
-            <h2>Login</h2>
+body {
+    margin: 0;
+    padding: 20px;
+    background: #050b0a;
+    color: white;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
 
-            <input type="text" placeholder="Username or Email">
-            <input type="password" placeholder="Password">
+header {
+    padding: 25px 10px;
+}
 
-            <button onclick="alert('Login system coming soon!')">
-                Login
-            </button>
+header h1 {
+    font-size: 42px;
+    color: white;
+}
 
-            <button class="login" onclick="location.reload()">
-                Back
-            </button>
-        </div>
-    `;
+header span {
+    color: #00e676;
+}
+
+header p {
+    color: #a9b7ca;
+}
+
+main {
+    max-width: 450px;
+    margin: auto;
+}
+
+.welcome,
+.form-box {
+    background: #10201b;
+    padding: 25px;
+    border-radius: 18px;
+    margin: 20px 0;
+}
+
+h2 {
+    color: #00e676;
+}
+
+input {
+    width: 100%;
+    padding: 14px;
+    margin: 9px 0;
+    border: 1px solid #315344;
+    border-radius: 10px;
+    background: #07120e;
+    color: white;
+    font-size: 15px;
+}
+
+button {
+    width: 100%;
+    padding: 14px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 10px;
+    background: #00e676;
+    color: #001b0d;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.secondary {
+    background: #263b32;
+    color: white;
+}
+
+.google {
+    background: white;
+    color: #222;
+}
+
+.hidden {
+    display: none;
+}
+
+.features {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 25px;
+}
+
+.features div {
+    padding: 20px 10px;
+    background: #10201b;
+    border: 1px solid #244b38;
+    border-radius: 12px;
+}
+
+#message {
+    color: #00e676;
+    overflow-wrap: anywhere;
 }
