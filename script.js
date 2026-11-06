@@ -29,13 +29,6 @@ import {
     where
 } from
 "https://www.gstatic.com/firebasejs/11.6.0/firebase-firestore.js";
-// FIREBASE STORAGE
-import {
-    getStorage,
-    ref,
-    uploadBytes,
-    getDownloadURL
-} from "https://www.gstatic.com/firebasejs/11.6.0/firebase-storage.js";
 
 // FIREBASE CONFIG
 const firebaseConfig = {
@@ -53,7 +46,6 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
-const storage = getStorage(app);
 const googleProvider = new GoogleAuthProvider();
 
 const $ = id => document.getElementById(id);
@@ -364,42 +356,10 @@ $("adForm").addEventListener("submit", async event => {
     }
 
     try {
-        message("Saving advertisement...");
-
-        const file = $("adImageFile").files[0];
-
-        let imageUrl = $("adImageUrl").value.trim();
-
-        // CHECK IMAGE
-        if (file) {
-            if (!file.type.startsWith("image/")) {
-                message("Please select an image.");
-                return;
-            }
-
-            if (file.size > 5 * 1024 * 1024) {
-                message("Image must not exceed 5MB.");
-                return;
-            }
-
-            const safeName = file.name.replace(/[^a-zA-Z0-9._-]/g, "_");
-
-            const imageRef = ref(
-                storage,
-                "advertisements/" +
-                auth.currentUser.uid + "/" +
-                Date.now() + "_" + safeName
-            );
-
-            await uploadBytes(imageRef, file);
-
-            imageUrl = await getDownloadURL(imageRef);
-        }
-
         const ad = {
             title: $("adTitle").value.trim(),
             description: $("adDescription").value.trim(),
-            imageUrl: imageUrl,
+            imageUrl: $("adImageUrl").value.trim(),
             link: $("adLink").value.trim(),
             active: $("adActive").checked
         };
@@ -409,7 +369,6 @@ $("adForm").addEventListener("submit", async event => {
                 doc(db, "advertisements", editingAdId),
                 ad
             );
-
             message("Advertisement updated!");
 
         } else {
@@ -420,18 +379,16 @@ $("adForm").addEventListener("submit", async event => {
                     createdAt: serverTimestamp()
                 }
             );
-
             message("Advertisement created!");
         }
 
         resetAdForm();
-
         await loadAdvertisements();
         await loadAdminAds();
 
     } catch (error) {
+        message(error.message);
         console.error(error);
-        message("Error: " + error.message);
     }
 });
 
