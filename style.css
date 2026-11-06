@@ -4,7 +4,7 @@
 
 body {
     margin: 0;
-    padding: 20px;
+    padding: 15px;
     background: #050b0a;
     color: white;
     font-family: Arial, sans-serif;
@@ -29,14 +29,15 @@ header p {
 }
 
 main {
-    max-width: 450px;
+    max-width: 500px;
     margin: auto;
 }
 
 .welcome,
-.form-box {
+.form-box,
+#adsSection {
     background: #10201b;
-    padding: 25px;
+    padding: 22px;
     border-radius: 18px;
     margin: 20px 0;
 }
@@ -45,7 +46,12 @@ h2 {
     color: #00e676;
 }
 
-input {
+h3 {
+    color: #00e676;
+}
+
+input,
+textarea {
     width: 100%;
     padding: 14px;
     margin: 9px 0;
@@ -54,6 +60,16 @@ input {
     background: #07120e;
     color: white;
     font-size: 15px;
+}
+
+textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+input[type="checkbox"] {
+    width: auto;
+    margin-right: 8px;
 }
 
 button {
@@ -66,6 +82,11 @@ button {
     color: #001b0d;
     font-weight: bold;
     font-size: 16px;
+    cursor: pointer;
+}
+
+button:active {
+    transform: scale(0.98);
 }
 
 .secondary {
@@ -79,7 +100,7 @@ button {
 }
 
 .hidden {
-    display: none;
+    display: none !important;
 }
 
 .features {
@@ -96,7 +117,55 @@ button {
     border-radius: 12px;
 }
 
+.ad-card {
+    background: #07120e;
+    border: 1px solid #244b38;
+    border-radius: 14px;
+    padding: 15px;
+    margin: 15px 0;
+    text-align: left;
+    overflow-wrap: anywhere;
+}
+
+.ad-card img {
+    max-height: 250px;
+    object-fit: cover;
+    margin-top: 10px;
+}
+
+.ad-card p {
+    color: #c5d2ca;
+    line-height: 1.5;
+}
+
+.ad-card a {
+    display: inline-block;
+    margin-top: 12px;
+    color: #00e676;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+#adminPanel {
+    background: #142b20;
+    border: 1px solid #00e676;
+    border-radius: 15px;
+    padding: 15px;
+    margin-top: 20px;
+}
+
 #message {
     color: #00e676;
     overflow-wrap: anywhere;
+    margin: 15px 0;
+}
+
+@media (max-width: 400px) {
+    header h1 {
+        font-size: 34px;
     }
+
+    main {
+        width: 100%;
+    }
+}
