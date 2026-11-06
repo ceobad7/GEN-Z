@@ -1,84 +1,102 @@
 * {
-    margin: 0;
-    padding: 0;
     box-sizing: border-box;
 }
 
 body {
-    background: #050b08;
+    margin: 0;
+    padding: 20px;
+    background: #050b0a;
     color: white;
     font-family: Arial, sans-serif;
+    text-align: center;
 }
 
 header {
-    text-align: center;
-    padding: 35px 15px;
-    background: #091810;
-    border-bottom: 1px solid #00e676;
+    padding: 25px 10px;
 }
 
 header h1 {
-    font-size: 45px;
-    color: #00e676;
-    letter-spacing: 3px;
-}
-
-header h1 span {
+    font-size: 42px;
     color: white;
 }
 
+header span {
+    color: #00e676;
+}
+
 header p {
-    color: #a9b7ae;
-    margin-top: 8px;
+    color: #a9b7ca;
 }
 
-.welcome {
-    text-align: center;
-    padding: 80px 20px;
+main {
+    max-width: 450px;
+    margin: auto;
 }
 
-.welcome h2 {
-    font-size: 28px;
-    margin-bottom: 15px;
+.welcome,
+.form-box {
+    background: #10201b;
+    padding: 25px;
+    border-radius: 18px;
+    margin: 20px 0;
 }
 
-.welcome p {
-    color: #a9b7ae;
-    margin-bottom: 30px;
+h2 {
+    color: #00e676;
+}
+
+input {
+    width: 100%;
+    padding: 14px;
+    margin: 9px 0;
+    border: 1px solid #315344;
+    border-radius: 10px;
+    background: #07120e;
+    color: white;
+    font-size: 15px;
 }
 
 button {
-    display: block;
     width: 100%;
-    max-width: 300px;
-    margin: 12px auto;
-    padding: 15px;
+    padding: 14px;
+    margin: 8px 0;
     border: none;
     border-radius: 10px;
     background: #00e676;
-    color: black;
-    font-size: 16px;
+    color: #001b0d;
     font-weight: bold;
+    font-size: 16px;
 }
 
-button.login {
-    background: transparent;
-    color: #00e676;
-    border: 1px solid #00e676;
+.secondary {
+    background: #263b32;
+    color: white;
+}
+
+.google {
+    background: white;
+    color: #222;
+}
+
+.hidden {
+    display: none;
 }
 
 .features {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 15px;
-    padding: 20px;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 25px;
 }
 
 .features div {
-    background: #102319;
-    padding: 25px 10px;
-    text-align: center;
+    padding: 20px 10px;
+    background: #10201b;
+    border: 1px solid #244b38;
     border-radius: 12px;
-    border: 1px solid #164b2e;
-    font-size: 17px;
-  }
+}
+
+#message {
+    color: #00e676;
+    overflow-wrap: anywhere;
+    }
